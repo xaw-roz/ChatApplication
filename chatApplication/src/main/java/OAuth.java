@@ -75,7 +75,11 @@ public class OAuth extends AbstractVerticle{
 
         System.out.println("Username: "+fbProfileData.get("first_name"));
 
-        context.response().putHeader("content-type","text/html;charset=UTF-8").end("Welcome "+fbProfileData.get("first_name")+"("+fbProfileData.get("email")+")");
+        /*context.response().putHeader("content-type","text/html;charset=UTF-8").end("Welcome "+fbProfileData.get("first_name")+"("+fbProfileData.get("email")+")");*/
+        String [] tokens = accessToken.split("&");
+        String [] ftoken = tokens[0].split("=");
+        //System.out.println("The final token is --> "+ ftoken[1]);
+        context.response().putHeader("content-type","text/html;charset=UTF-8").end("HI Welcome "+fbProfileData.get("first_name")+"("+fbProfileData.get("email")+")" +"<br><a href=\"https://www.facebook.com/logout.php?next="+"http://localhost:8080/auth"+"/&access_token="+ftoken[1]+"\">log out with Facebook</a>");
     }
 
 }
