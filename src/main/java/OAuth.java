@@ -51,13 +51,14 @@ public class OAuth extends AbstractVerticle{
 
         FBConnection fbConnection = new FBConnection();
         String url=fbConnection.getFBAuthUrl();
-        try {
-            Desktop desktop = java.awt.Desktop.getDesktop();
-            URI oURL = new URI(url);
-            desktop.browse(oURL);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Desktop desktop = java.awt.Desktop.getDesktop();
+//            URI oURL = new URI(url);
+//            desktop.browse(oURL);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+        routingContext.response().setChunked(true).sendFile("webroot/index.html");
     }
     
     public void oResult(RoutingContext context){
