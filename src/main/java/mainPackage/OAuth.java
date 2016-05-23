@@ -1,10 +1,15 @@
+package mainPackage;
+
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Vertx;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
+import mainPackage.Domain.Users;
+import mainPackage.Service.UserService;
 
 import java.awt.*;
 import java.net.URI;
+import java.sql.SQLException;
 import java.util.Map;
 
 /**
@@ -27,7 +32,7 @@ public class OAuth extends AbstractVerticle{
     }
 //    public void auth(RoutingContext routingContext){
 //
-//            FBConnection fbConnection = new FBConnection();
+//            mainPackage.FBConnection fbConnection = new mainPackage.FBConnection();
 //        fbConnection.getFBAuthUrl();
 //        code=routingContext.request().getParam("code");
 //        if (code == null || code.equals("")) {
@@ -36,7 +41,7 @@ public class OAuth extends AbstractVerticle{
 //        }
 //        System.out.println(code);
 //            String accessToken =fbConnection.getAccessToken(code);
-//            FBGraph fbGraph = new FBGraph(accessToken);
+//            mainPackage.FBGraph fbGraph = new mainPackage.FBGraph(accessToken);
 //            String graph = fbGraph.getFBGraph();
 //            Map<String, String> fbProfileData = fbGraph.getGraphData(graph);
 //
@@ -80,6 +85,33 @@ public class OAuth extends AbstractVerticle{
         String [] tokens = accessToken.split("&");
         String [] ftoken = tokens[0].split("=");
         //System.out.println("The final token is --> "+ ftoken[1]);
+        UserService userService = new UserService();
+
+        if(!(userService.searchUserId(Long.parseLong(fbProfileData.get("id"))))){
+
+            Users user = new Users() ;
+            System.out.println("check to see if long parse correct: "+Long.parseLong(fbProfileData.get("id")));
+
+            user.setId(Long.parseLong(fbProfileData.get("id")));
+
+            System.out.println(user.getId());
+
+
+            user.setEmail(fbProfileData.get("email"));
+            user.setName(fbProfileData.get("first_name"));
+
+
+
+            //insert into database if user does not exit
+            try {
+                userService.storeUser(user);
+                System.out.println("info of user stored successful");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+        };
+
         context.response().putHeader("content-type","text/html;charset=UTF-8").end("HI Welcome "+fbProfileData.get("first_name")+"("+fbProfileData.get("email")+")" +"<br><a href=\"https://www.facebook.com/logout.php?next="+"http://localhost:8080/auth"+"/&access_token="+ftoken[1]+"\">log out with Facebook</a>");
    
     }

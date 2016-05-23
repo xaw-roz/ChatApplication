@@ -1,3 +1,5 @@
+package mainPackage;
+
 import io.vertx.core.json.JsonObject;
 
 import java.io.BufferedReader;

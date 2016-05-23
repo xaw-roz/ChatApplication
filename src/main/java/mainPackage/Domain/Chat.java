@@ -1,4 +1,4 @@
-package Domain;
+package mainPackage.Domain;
 
 /**
  * Created by Suryaraj on 5/18/2016.
