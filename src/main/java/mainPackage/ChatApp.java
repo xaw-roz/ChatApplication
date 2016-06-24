@@ -30,6 +30,9 @@ public class ChatApp extends AbstractVerticle{
             HttpServerResponse response = rtx.response();
             response.setChunked(true);
             response.sendFile("webroot/index.html");
+//            response.sendFile("webroot/chat.html");
+//            router.route().handler(StaticHandler.create());
+
         });
 
         router.route("/Js/*").handler(StaticHandler.create("webroot/Js"));
@@ -85,6 +88,7 @@ public class ChatApp extends AbstractVerticle{
 
         };*/
 
-        context.response().putHeader("content-type","text/html;charset=UTF-8").end("HI Welcome "+fbProfileData.get("first_name")+"("+fbProfileData.get("email")+")" +"<br><a href=\"https://www.facebook.com/logout.php?next="+"http://localhost:8080/"+"/&access_token="+ftoken[1]+"\">log out with Facebook</a>");
+       // context.response().putHeader("content-type","text/html;charset=UTF-8").end("HI Welcome "+fbProfileData.get("first_name")+"("+fbProfileData.get("email")+")" +"<br><a href=\"https://www.facebook.com/logout.php?next="+"http://localhost:8080/"+"/&access_token="+ftoken[1]+"\">log out with Facebook</a>"+"<br><a href=>chat</a>");
+        context.response().sendFile("webroot/chat.html");
     }
 }
