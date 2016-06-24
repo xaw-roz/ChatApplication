@@ -7,6 +7,7 @@ import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.StaticHandler;
 import mainPackage.Domain.Users;
+import mainPackage.Service.DbService;
 import mainPackage.Service.UserService;
 
 import java.sql.SQLException;
@@ -34,6 +35,10 @@ public class ChatApp extends AbstractVerticle{
 //            router.route().handler(StaticHandler.create());
 
         });
+        vertx.executeBlocking(future->{
+            DbService.buildConnection(vertx);
+            future.complete("Connected to Database");
+        },res->{});
 
         router.route("/Js/*").handler(StaticHandler.create("webroot/Js"));
         router.route("/Css/*").handler(StaticHandler.create("webroot/Css"));
