@@ -45,6 +45,8 @@ public class ChatApp extends AbstractVerticle{
         router.route("/fbhome").handler(this::oResult);
 
 
+        router.route().handler(StaticHandler.create());
+
     }
 
     public void oResult(RoutingContext context){

@@ -23,8 +23,6 @@
     <orderEntry type="library" name="Maven: io.vertx:vertx-web:3.0.0" level="project" />
     <orderEntry type="library" name="Maven: io.vertx:vertx-auth-common:3.0.0" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:6.0.2" level="project" />
-<<<<<<< HEAD
-=======
     <orderEntry type="library" name="Maven: io.vertx:vertx-jdbc-client:3.2.1" level="project" />
     <orderEntry type="library" name="Maven: io.vertx:vertx-sql-common:3.2.1" level="project" />
     <orderEntry type="library" name="Maven: com.mchange:c3p0:0.9.5.2" level="project" />
@@ -38,6 +36,5 @@
     <orderEntry type="library" name="Maven: io.netty:netty-all:4.0.29.Final" level="project" />
     <orderEntry type="library" name="Maven: org.javassist:javassist:3.20.0-GA" level="project" />
     <orderEntry type="library" name="Maven: com.github.mauricio:mysql-async_2.11:0.2.18" level="project" />
->>>>>>> origin/master
   </component>
 </module>

@@ -66,3 +66,20 @@ fabric.properties
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+.vertx/file-cache-067d1d7a-3d75-4550-bf48-f7761842301a/
+.vertx/file-cache-1c6f1af0-254b-4e93-811f-6c2e9a252696/
+.vertx/file-cache-3a134d91-c7f8-41ee-8f47-757dc63a42c2/
+.vertx/file-cache-437fa343-b22d-4d12-b44f-8cd84e3987c7/
+.vertx/file-cache-4f4c9a61-d6e8-4157-a5aa-102a32be439e/
+.vertx/file-cache-573d114c-b04c-474b-96e6-bdad4ae24883/
+.vertx/file-cache-74e8af90-4fcc-4d76-a959-d5df2927d54f/
+.vertx/file-cache-7fef9aeb-de56-4c05-9847-e947520d91cd/
+.vertx/file-cache-9dc5c312-0bbc-470c-b109-1b89dd4c0be3/
+.vertx/file-cache-a5880da5-6560-4fbe-8ee5-d3dc50c6bb2f/
+.vertx/file-cache-adea5d5f-4031-43a0-89a3-9352ccd0bd92/
+.vertx/file-cache-c14884b1-30a3-403d-923e-cb882cfce816/
+.vertx/file-cache-d4185b35-3467-497a-b0dc-9aac99cfa8af/
+.vertx/file-cache-e33cbee3-27f2-4be3-a02c-19a728fd666c/
+.vertx/file-cache-f038b1e1-ac85-44a1-a90c-252e85bf3e31/
+target/classes/mainPackage/
+target/generated-sources/
