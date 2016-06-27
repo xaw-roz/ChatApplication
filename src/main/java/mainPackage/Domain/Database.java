@@ -14,7 +14,7 @@ public class Database {
         Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
         String url = "jdbc:mysql://localhost:3306/chat_app";
         String user = "root";
-        String password = "sunil123";
+        String password = "";
         dbConnection = DriverManager.getConnection(url, user, password);
     }
 
